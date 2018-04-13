@@ -4,7 +4,7 @@ var $dateInput = document.querySelector('#datetime');
 var $searchBtn = document.querySelector('#search');
 
 // Add an event listener to the searchButton, call handleSearchButtonClick when clicked
-$searchBtn.addEventListener('click', handleSearchButtonClick);
+$searchBtn.addEventListener('click', handledateSearchButtonClick, false);
 
 // Set filteredData to Data initially
 // Data comes from the Data.js file
@@ -28,13 +28,13 @@ function renderTable() {
   }
 }
 
-function handleSearchButtonClick() {
+function handledateSearchButtonClick() {
     // Format the user's search by removing leading and trailing whitespace, lowercase the string
     var filterDate = $dateInput.value.trim().toLowerCase();
   
     // Set filteredAddresses to an array of all addresses whose "state" matches the filter
-    filteredData = dataSet.filter(function(date) {
-      var date_data = date.datetime.toLowerCase();
+    filteredData = dataSet.filter(function(data) {
+      var date_data = data.datetime.toLowerCase();
   
       // If true, add the address to the filteredAddresses, otherwise don't add it to filteredAddresses
       return date_data === filterDate;
